@@ -21,11 +21,11 @@ namespace WpfAppNET48
                 // Simuler un chargement
                 splashScreen.Dispatcher.Invoke(() => 
                     splashScreen.UpdateStatus("Chargement des modules..."));
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(3000);
 
                 splashScreen.Dispatcher.Invoke(() => 
                     splashScreen.UpdateStatus("Préparation de l'interface..."));
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(3000);
 
                 // Une fois le chargement terminé, ouvrir la fenêtre principale
                 this.Dispatcher.Invoke(() =>
