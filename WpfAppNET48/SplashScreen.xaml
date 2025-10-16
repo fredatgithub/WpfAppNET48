@@ -12,7 +12,7 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Mon Application" 
-                      Foreground="White" 
+                      Foreground="Black" 
                       FontSize="24" 
                       HorizontalAlignment="Center"
                       Margin="0,0,0,20"/>
@@ -22,7 +22,7 @@
                         Margin="0,10"/>
             <TextBlock x:Name="StatusText" 
                       Text="Chargement en cours..." 
-                      Foreground="White"
+                      Foreground="Black"
                       HorizontalAlignment="Center"
                       Margin="0,20,0,0"/>
         </StackPanel>
