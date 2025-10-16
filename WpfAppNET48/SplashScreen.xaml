@@ -1,0 +1,30 @@
+<Window x:Class="WpfAppNET48.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Chargement..." 
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" 
+        ResizeMode="NoResize" 
+        Width="400" 
+        Height="300"
+        Topmost="True"
+        Background="#FF1E1E1E">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Mon Application" 
+                      Foreground="White" 
+                      FontSize="24" 
+                      HorizontalAlignment="Center"
+                      Margin="0,0,0,20"/>
+            <ProgressBar IsIndeterminate="True" 
+                        Width="200" 
+                        Height="20"
+                        Margin="0,10"/>
+            <TextBlock x:Name="StatusText" 
+                      Text="Chargement en cours..." 
+                      Foreground="White"
+                      HorizontalAlignment="Center"
+                      Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>
