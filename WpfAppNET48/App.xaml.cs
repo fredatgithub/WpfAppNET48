@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -20,21 +21,21 @@ namespace WpfAppNET48
         // Simuler un chargement
         splashScreen.Dispatcher.Invoke(() =>
                   splashScreen.UpdateStatus("Vérification de la connexion à la base de données..."));
-        System.Threading.Thread.Sleep(3000);
+        Thread.Sleep(3000);
 
         splashScreen.Dispatcher.Invoke(() =>
                   splashScreen.UpdateStatus("Préparation de l'interface..."));
-        System.Threading.Thread.Sleep(3000);
+        Thread.Sleep(3000);
 
         // Une fois le chargement terminé, ouvrir la fenêtre principale
-        this.Dispatcher.Invoke(() =>
+        Dispatcher.Invoke(() =>
               {
-            var mainWindow = new MainWindow();
-            mainWindow.Show();
+                var mainWindow = new MainWindow();
+                mainWindow.Show();
 
                 // Fermer le splash screen
-            splashScreen.Close();
-          });
+                splashScreen.Close();
+              });
       });
 
       base.OnStartup(e);
