@@ -17,7 +17,6 @@ Namespace WpfAppVB
 
       ' Démarrer le chargement de l'application en arrière-plan
       Dim task = Tasks.Task.Factory.StartNew(Sub()
-                                               ' Simuler un chargement
                                                UpdateSplashScreen(splashScreen, "Vérification de la connexion à la base de données...")
                                                Thread.Sleep(1000)
 
