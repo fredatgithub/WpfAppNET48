@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppNET48", "WpfAppNET48\
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WpfAppVB", "WpfAppVB\WpfAppVB.vbproj", "{B0570276-BC84-4CC1-87CD-2ED61BB3CC96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsAppSigned", "WindowsFormsAppSigned\WindowsFormsAppSigned.csproj", "{AC48D637-04D6-4CF5-BBFF-FB2B7ADD0205}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B0570276-BC84-4CC1-87CD-2ED61BB3CC96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0570276-BC84-4CC1-87CD-2ED61BB3CC96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0570276-BC84-4CC1-87CD-2ED61BB3CC96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC48D637-04D6-4CF5-BBFF-FB2B7ADD0205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC48D637-04D6-4CF5-BBFF-FB2B7ADD0205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC48D637-04D6-4CF5-BBFF-FB2B7ADD0205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC48D637-04D6-4CF5-BBFF-FB2B7ADD0205}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
