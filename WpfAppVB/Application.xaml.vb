@@ -1,47 +1,48 @@
 Imports System.Threading
-Imports System.Windows.Threading
 
 Namespace WpfAppVB
   ''' <summary>
   ''' Logique d'interaction pour Application.xaml
   ''' </summary>
   Partial Public Class Application
-    Inherits Windows.Application
-
-    Private Sub Application_Startup(sender As Object, e As StartupEventArgs)
-      ' Appeler OnStartup pour assurer la compatibilité avec le code existant
-      OnStartup(e)
-    End Sub
+    Inherits System.Windows.Application
 
     Protected Overrides Sub OnStartup(e As StartupEventArgs)
+      MyBase.OnStartup(e)
+
       ' Créer et afficher le splash screen
       Dim splashScreen = New SplashScreen()
+      Me.MainWindow = splashScreen
       splashScreen.Show()
 
       ' Démarrer le chargement de l'application en arrière-plan
-      Task.Factory.StartNew(Sub()
-                              ' Simuler un chargement
-                              splashScreen.Dispatcher.Invoke(Sub()
-                                                               splashScreen.UpdateStatus("Vérification de la connexion à la base de données...")
-                                                             End Sub)
-                              Thread.Sleep(1000)
+      Dim task = Tasks.Task.Factory.StartNew(Sub()
+                                               ' Simuler un chargement
+                                               UpdateSplashScreen(splashScreen, "Vérification de la connexion à la base de données...")
+                                               Thread.Sleep(1000)
 
-                              splashScreen.Dispatcher.Invoke(Sub()
-                                                               splashScreen.UpdateStatus("Préparation de l'interface...")
-                                                             End Sub)
-                              Thread.Sleep(1000)
+                                               UpdateSplashScreen(splashScreen, "Préparation de l'interface...")
+                                               Thread.Sleep(1000)
 
-                              ' Une fois le chargement terminé, ouvrir la fenêtre principale
-                              Dispatcher.Invoke(Sub()
-                                                  ' Fermer le splash screen
-                                                  splashScreen.Close()
+                                               ' Une fois le chargement terminé, ouvrir la fenêtre principale
+                                               Dispatcher.Invoke(Sub()
+                                                                   ' Créer et afficher la fenêtre principale
+                                                                   Dim mainWindow = New MainWindow()
+                                                                   Me.MainWindow = mainWindow
 
-                                                  Dim mainWindow = New MainWindow()
-                                                  mainWindow.Show()
-                                                End Sub)
-                            End Sub)
+                                                                   ' Fermer le splash screen et afficher la fenêtre principale
+                                                                   splashScreen.Close()
+                                                                   mainWindow.Show()
+                                                                 End Sub)
+                                             End Sub)
+    End Sub
 
-      MyBase.OnStartup(e)
+    Private Sub UpdateSplashScreen(splashScreen As SplashScreen, status As String)
+      If Not splashScreen.Dispatcher.CheckAccess() Then
+        splashScreen.Dispatcher.Invoke(Sub() UpdateSplashScreen(splashScreen, status))
+        Return
+      End If
+      splashScreen.UpdateStatus(status)
     End Sub
   End Class
 End Namespace
