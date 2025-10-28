@@ -5,14 +5,14 @@ Namespace WpfAppVB
   ''' Logique d'interaction pour Application.xaml
   ''' </summary>
   Partial Public Class Application
-    Inherits System.Windows.Application
+    Inherits Windows.Application
 
     Protected Overrides Sub OnStartup(e As StartupEventArgs)
       MyBase.OnStartup(e)
 
       ' Créer et afficher le splash screen
       Dim splashScreen = New SplashScreen()
-      Me.MainWindow = splashScreen
+      MainWindow = splashScreen
       splashScreen.Show()
 
       ' Démarrer le chargement de l'application en arrière-plan

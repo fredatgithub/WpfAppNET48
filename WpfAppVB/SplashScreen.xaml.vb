@@ -1,6 +1,6 @@
 Namespace WpfAppVB
   Partial Public Class SplashScreen
-    Inherits System.Windows.Window
+    Inherits Window
 
     Public Sub New()
       InitializeComponent()
