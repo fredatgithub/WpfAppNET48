@@ -1,5 +1,3 @@
-Imports System.Windows
-
 Namespace WpfAppVB
   Partial Public Class SplashScreen
     Inherits System.Windows.Window

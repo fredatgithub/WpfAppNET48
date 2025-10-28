@@ -1,6 +1,4 @@
 Imports System.Threading
-Imports System.Threading.Tasks
-Imports System.Windows
 Imports System.Windows.Threading
 
 Namespace WpfAppVB
@@ -8,8 +6,8 @@ Namespace WpfAppVB
   ''' Logique d'interaction pour Application.xaml
   ''' </summary>
   Partial Public Class Application
-    Inherits System.Windows.Application
-    
+    Inherits Windows.Application
+
     Private Sub Application_Startup(sender As Object, e As StartupEventArgs)
       ' Appeler OnStartup pour assurer la compatibilité avec le code existant
       OnStartup(e)
@@ -26,20 +24,20 @@ Namespace WpfAppVB
                               splashScreen.Dispatcher.Invoke(Sub()
                                                                splashScreen.UpdateStatus("Vérification de la connexion à la base de données...")
                                                              End Sub)
-                              Thread.Sleep(3000)
+                              Thread.Sleep(1000)
 
                               splashScreen.Dispatcher.Invoke(Sub()
                                                                splashScreen.UpdateStatus("Préparation de l'interface...")
                                                              End Sub)
-                              Thread.Sleep(3000)
+                              Thread.Sleep(1000)
 
                               ' Une fois le chargement terminé, ouvrir la fenêtre principale
                               Dispatcher.Invoke(Sub()
-                                                  Dim mainWindow = New MainWindow()
-                                                  mainWindow.Show()
-
                                                   ' Fermer le splash screen
                                                   splashScreen.Close()
+
+                                                  Dim mainWindow = New MainWindow()
+                                                  mainWindow.Show()
                                                 End Sub)
                             End Sub)
 
